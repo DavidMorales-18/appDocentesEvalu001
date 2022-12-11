@@ -50,7 +50,7 @@ function App() {
           name="Registration"
           component={Registration}
           options={{
-            headerTitle: () => < Header name='Profe Login' />,
+            headerTitle: () => < Header name='UPS-Caficicaciónes'/>,
             headerStyle: {
               height: 150,
               boderBottomLeftRadius: 50,

@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 import React, { useState } from 'react';
 import { firebase } from '../config';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 /* import { useNavigation } from '@react-navigation/native'; */
 
 const Registration = () => {
@@ -38,7 +37,6 @@ const Registration = () => {
               })
           })
           .catch((error => {
-            console.log('error', error)
             alert(error.message)
           }))
 
@@ -48,63 +46,61 @@ const Registration = () => {
   }
 
   return (
-    <KeyboardAwareScrollView >
-      <View style={style.container}>
-        <Text style={{ fontWeight: 'bold', fontSize: 23 }}>
-          Registrate
-        </Text>
-        <View style={{ marginTop: 40 }} >
-          <TextInput
-            style={style.textInput}
-            placeholder='Nombre'
-            onChangeText={(firstname) => setFirstname(firstname)}
-            autoCapitalize='nome'
-            autoCorrect={false}
-          />
-          <TextInput
-            style={style.textInput}
-            placeholder='Apellidos'
-            onChangeText={(lastname) => setLastname(lastname)}
-            autoCapitalize='nome'
-            autoCorrect={false}
-          />
-          <TextInput
-            style={style.textInput}
-            placeholder='Seudonim'
-            onChangeText={(seudonim) => setSeudonim(seudonim)}
-            autoCapitalize='nome'
-            autoCorrect={false}
-          />
+    <View style={style.container}>
+      <Text style={{ fontWeight: 'bold', fontSize: 23 }}>
+        Registrate
+      </Text>
+      <View style={{ marginTop: 40 }} >
+        <TextInput
+          style={style.textInput}
+          placeholder='Nombre'
+          onChangeText={(firstname) => setFirstname(firstname)}
+          autoCapitalize='nome'
+          autoCorrect={false}
+        />
+        <TextInput
+          style={style.textInput}
+          placeholder='Apellidos'
+          onChangeText={(lastname) => setLastname(lastname)}
+          autoCapitalize='nome'
+          autoCorrect={false}
+        />
+        <TextInput
+          style={style.textInput}
+          placeholder='Seudonim'
+          onChangeText={(seudonim) => setSeudonim(seudonim)}
+          autoCapitalize='nome'
+          autoCorrect={false}
+        />
 
-          <TextInput
-            style={style.textInput}
-            placeholder='email'
-            onChangeText={(email) => setEmail(email)}
-            autoCapitalize='nome'
-            autoCorrect={false}
-          />
-          <TextInput
-            style={style.textInput}
-            placeholder='Password'
-            onChangeText={(password) => setPassword(password)}
-            autoCapitalize='nome'
-            autoCorrect={false}
-            secureTextEntry={true}
-          />
-
-        </View>
-        <TouchableOpacity
-          onPress={() => RegisterUser(email, password, lastname, firstname, seudonim)}
-          style={style.button}
-        >
-          <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
-            Registrate!!!
-          </Text>
-
-        </TouchableOpacity>
+        <TextInput
+          style={style.textInput}
+          placeholder='email'
+          onChangeText={(email) => setEmail(email)}
+          autoCapitalize='nome'
+          autoCorrect={false}
+        />
+        <TextInput
+          style={style.textInput}
+          placeholder='Password'
+          onChangeText={(password) => setPassword(password)}
+          autoCapitalize='nome'
+          autoCorrect={false}
+          secureTextEntry={true}
+        />
 
       </View>
-    </KeyboardAwareScrollView>
+      <TouchableOpacity
+        onPress={() => RegisterUser(email, password, lastname, firstname, seudonim)}
+        style={style.button}
+      >
+        <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
+          Registrate!!!
+        </Text>
+
+      </TouchableOpacity>
+
+    </View>
   )
 
 
